@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS file -->
+</head>
+<body class="bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Online Banking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#transferFunds">Transfer Funds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#transactionHistory">Transaction History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profileManagement">Profile Management</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="text-center">Welcome to Your Online Banking</h3>
+            </div>
+            <div class="card-body">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="mb-4">
+                    <h5>Account Dashboard</h5>
+                    <p>Account Number: <strong>1234567890</strong></p>
+                    <p>Available Balance: <strong>$15,000.00</strong></p>
+                </div>
+
+                <!-- Transfer Funds Section -->
+                <div id="transferFunds" class="mb-4">
+                    <h5>Transfer Funds</h5>
+                    <form id="transferFundsForm">
+                        <div class="mb-3">
+                            <label for="recipientAccount" class="form-label">Recipient Account Number</label>
+                            <input type="text" class="form-control" id="recipientAccount" placeholder="Enter recipient account number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="transferAmount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="transferAmount" placeholder="Enter amount">
+                        </div>
+                        <button type="submit" class="btn btn-success">Transfer</button>
+                    </form>
+                </div>
+
+                <!-- Transaction History Section -->
+                <div id="transactionHistory" class="mb-4">
+                    <h5>Transaction History</h5>
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-12-01</td>
+                                <td>Transfer to 9876543210</td>
+                                <td>$200.00</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>2024-12-02</td>
+                                <td>Deposit</td>
+                                <td>$500.00</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Profile Management Section -->
+                <div id="profileManagement">
+                    <h5>Profile Management</h5>
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter new password">
+                        </div>
+                        <button type="submit" class="btn btn-warning">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-4">
+        <p>© 2024 Online Banking System. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
