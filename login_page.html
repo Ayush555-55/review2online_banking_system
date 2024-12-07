@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Online Banking System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to a custom stylesheet -->
+    <style>
+        /* Inline enhancements for quick reference */
+        body {
+            background-image: url('banking-bg.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #f8f9fa;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="card shadow-lg" style="width: 400px;">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Online Banking Login</h3>
+        </div>
+        <div class="card-body">
+            <form id="loginForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="user-type" class="form-label">Login As</label>
+                    <select id="user-type" name="user-type" class="form-select" required>
+                        <option value="">Select User Type</option>
+                        <option value="customer">Customer</option>
+                        <option value="admin">Administrator</option>
+                    </select>
+                    <div class="invalid-feedback">Please select your role.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                    <div class="invalid-feedback">Username is required.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
+                            <i class="bi bi-eye"></i> <!-- Bootstrap Icon -->
+                        </button>
+                    </div>
+                    <div class="invalid-feedback">Password is required.</div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <div class="mt-3 text-center">
+                <a href="forgot-password.html" class="text-primary">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+
+            loginForm.addEventListener('submit', function(event) {
+                if (!loginForm.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault(); // Prevent default submission for demo
+                    const userType = document.getElementById('user-type').value;
+                    if (userType === 'customer') {
+                        window.location.href = 'customer-dashboard.html';
+                    } else if (userType === 'admin') {
+                        window.location.href = 'admin-dashboard.html';
+                    }
+                }
+                loginForm.classList.add('was-validated');
+            });
+        });
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = event.currentTarget;
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+            toggleButton.innerHTML = passwordField.type === 'password' ? 
+                '<i class="bi bi-eye"></i>' : '<i class="bi bi-eye-slash"></i>';
+        }
+    </script>
+</body>
+</html>
